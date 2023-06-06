@@ -1,0 +1,14 @@
+{:paths ["src"]
+ :deps {com.wsscode/pathom3 {:mvn/version "2023.01.31-alpha"}
+        dev.weavejester/medley {:mvn/version "1.7.0"}
+        org.clojure/clojure {:mvn/version "1.11.1"}
+        org.clojure/core.memoize {:mvn/version "1.0.257"}}
+ :aliases {:local-repl
+           {:extra-deps {cider/cider-nrepl {:mvn/version "0.30.0"},
+                         mx.cider/tools.deps.enrich-classpath {:mvn/version "1.9.0"},
+                         nrepl/nrepl {:mvn/version "1.1.0-alpha1"},
+                         refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}},
+            :main-opts ["-m" "nrepl.cmdline" "-b" "0.0.0.0" "-p" "8675" "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+           :release
+           {:extra-deps {applied-science/deps-library {:mvn/version "0.4.0"}}
+            :main-opts ["-m" "applied-science.deps-library"]}}}
